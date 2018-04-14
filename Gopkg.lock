@@ -4,7 +4,10 @@
 [[projects]]
   branch = "master"
   name = "github.com/agl/ed25519"
-  packages = [".","edwards25519"]
+  packages = [
+    ".",
+    "edwards25519"
+  ]
   revision = "5312a61534124124185d41f09206b9fef1d88403"
 
 [[projects]]
@@ -45,20 +48,49 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/mc-aeq/base58"
+  name = "github.com/decred/base58"
   packages = ["."]
-  revision = "b3520e187fa8ebe65eb74245408cf4b83e6a65d3"
+  revision = "56c501706f00d9e1cfacee19a27117e12da24734"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/mc-aeq/aeqd"
-  packages = ["blockchain","blockchain/internal/dbnamespace","blockchain/internal/progresslog","blockchain/stake","blockchain/stake/internal/dbnamespace","blockchain/stake/internal/ticketdb","blockchain/stake/internal/tickettreap","chaincfg","chaincfg/chainec","chaincfg/chainhash","database","dcrec/edwards","dcrec/secp256k1","dcrec/secp256k1/schnorr","dcrutil","txscript","wire"]
-  revision = "f903c700a41a80f59daf21fa8489a437485dcfdb"
+  name = "github.com/decred/dcrd"
+  packages = [
+    "blockchain/internal/dbnamespace",
+    "blockchain/internal/progresslog",
+    "blockchain/stake",
+    "blockchain/stake/internal/dbnamespace",
+    "blockchain/stake/internal/ticketdb",
+    "blockchain/stake/internal/tickettreap",
+    "chaincfg",
+    "chaincfg/chainec",
+    "chaincfg/chainhash",
+    "database",
+    "dcrec/edwards",
+    "dcrec/secp256k1",
+    "dcrec/secp256k1/schnorr",
+    "dcrutil",
+    "txscript",
+    "wire"
+  ]
+  revision = "008e80bf8668544de4200a08927e95e5926439a0"
+  version = "v1.1.2"
 
 [[projects]]
   name = "github.com/jrick/logrotate"
   packages = ["rotator"]
   revision = "4ed05ed86ef17d10ff99cce77481e0fcf6f2c7b0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mc-aeq/aeqd"
+  packages = [
+    "blockchain",
+    "chaincfg",
+    "chaincfg/chainhash",
+    "dcrutil",
+    "wire"
+  ]
+  revision = "f903c700a41a80f59daf21fa8489a437485dcfdb"
 
 [[projects]]
   branch = "master"
@@ -69,6 +101,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ca865d509ef76e69617ba986312229371b896b2822a4aee9c5010c0c19149b7a"
+  inputs-digest = "d7cf9153064beea4e906a8899368e007c05a7ed291e999c2a7fd4573cf6ff9b3"
   solver-name = "gps-cdcl"
   solver-version = 1
