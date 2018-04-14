@@ -1,14 +1,18 @@
-# gominer
+<img align="left" width="100" height="100" src="https://aequator.io/AEC_Logo_Final_RGB.svg">
+
+gominer - GPU mining software for Æquator
+====
+[![Build Status](https://travis-ci.org/mc-aeq/gominer.png?branch=master)](https://travis-ci.org/mc-aeq/gominer)
+[![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/mc-aeq/gominer)
 
 gominer is an application for performing Proof-of-Work (PoW) mining on the
-Decred network.  It supports solo and stratum/pool mining using CUDA and
+Aequator network.  It supports solo and stratum/pool mining using CUDA and
 OpenCL devices.
 
 ## Downloading
 
-Linux and Windows 64-bit binaries may be downloaded from:
-
-[https://github.com/decred/decred-binaries/releases/latest](https://github.com/decred/decred-binaries/releases/latest)
+Linux and Windows 64-bit binaries links will be published once the internal development is done
 
 ## Running
 
@@ -18,7 +22,7 @@ Benchmark mode:
 gominer -B
 ```
 
-Solo mining on mainnet using dcrd running on the local host:
+Solo mining on mainnet using aeqd running on the local host:
 
 ```
 gominer -u myusername -P hunter2
@@ -99,9 +103,9 @@ To download and build gominer, run:
 
 ```
 go get -u github.com/golang/dep/cmd/dep
-mkdir -p $GOPATH/src/github.com/decred
-cd $GOPATH/src/github.com/decred
-git clone  https://github.com/decred/gominer.git
+mkdir -p $GOPATH/src/github.com/mc-aeq
+cd $GOPATH/src/github.com/mc-aeq
+git clone  https://github.com/mc-aeq/gominer.git
 cd gominer
 dep ensure
 ```
@@ -137,13 +141,13 @@ go build -tags opencladl
 - Add `C:\Program Files\mingw-w64\x84_64-6.2.0-posix-seh-rt_v5-rev1\mingw64\bin` to your PATH (This is the latest release as of 2016-09-29)
 - `go get github.com/golang/dep/cmd/dep`
   * You should be able to type ```dep``` and get dep's usage display.  If not, double check the steps above
-- `go get github.com/decred/gominer`
+- `go get github.com/mc-aeq/gominer`
   * Compilation will most likely fail which can be safely ignored for now.
 - Change to the gominer directory
   * If using the Windows Command Prompt:
-  ```cd %GOPATH%/src/github.com/decred/gominer```
+  ```cd %GOPATH%/src/github.com/mc-aeq/gominer```
   * If using git-bash
-  ```cd $GOPATH/src/github.com/decred/gominer```
+  ```cd $GOPATH/src/github.com/mc-aeq/gominer```
 - Install dependencies via dep
   * ```dep ensure```
 
@@ -160,10 +164,10 @@ go build -tags opencladl
 
 ###### Steps
 - Using git-bash:
-  * ```cd $GOPATH/src/github.com/decred/gominer```
+  * ```cd $GOPATH/src/github.com/mc-aeq/gominer```
   * ```mingw32-make.exe```
 - Copy dependencies:
-  * ```copy obj/decred.dll .```
+  * ```copy obj/aequator.dll .```
   * ```copy nvidia/NVSMI/nvml.dll .```
 
 ##### OpenCL/ADL
