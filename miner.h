@@ -613,7 +613,7 @@ void applog_hash64(void *hash);
 void applog_compare_hash(void *hash, void *hash_ref);
 
 void print_hash_tests(void);
-void decred_hash(void *state, const void *input);
+void aequator_hash(void *state, const void *input);
 
 #ifdef __cplusplus
 }

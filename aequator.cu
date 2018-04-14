@@ -8,7 +8,7 @@
  * Alexis Provos - Jun 2016
  */
 
-// nvcc  -I. -c decred.cu --ptx
+// nvcc  -I. -c aequator.cu --ptx
 
 #include <stdint.h>
 #include <memory.h>
@@ -31,7 +31,7 @@ extern "C" {
 #define maxResults 4
 
 /* hash by cpu with blake 256 */
-extern "C" void decred_hash(void *output, const void *input)
+extern "C" void aequator_hash(void *output, const void *input)
 {
 	sph_blake256_context ctx;
 
@@ -127,7 +127,7 @@ extern "C"
 {
 
 //__global__ __launch_bounds__(TPB,1)
-__global__ void decred_gpu_hash_nonce(const uint32_t threads, const uint32_t startNonce, uint32_t *resNonce, const uint32_t highTarget)
+__global__ void aequator_gpu_hash_nonce(const uint32_t threads, const uint32_t startNonce, uint32_t *resNonce, const uint32_t highTarget)
 {
 	const uint32_t thread = blockDim.x * blockIdx.x + threadIdx.x;
 
@@ -182,16 +182,16 @@ __global__ void decred_gpu_hash_nonce(const uint32_t threads, const uint32_t sta
 
 extern "C" {
 DLLEXPORT void
-decred_hash_nonce(uint32_t grid, uint32_t block, uint32_t threads,
+aequator_hash_nonce(uint32_t grid, uint32_t block, uint32_t threads,
     uint32_t startNonce, uint32_t *resNonce, uint32_t targetHigh)
 {
-	decred_gpu_hash_nonce <<<grid, block>>> (threads, startNonce, resNonce, targetHigh);
+	aequator_gpu_hash_nonce <<<grid, block>>> (threads, startNonce, resNonce, targetHigh);
 }
 }
 
 extern "C" {
 __host__ DLLEXPORT void
-decred_cpu_setBlock_52(const uint32_t *input)
+aequator_cpu_setBlock_52(const uint32_t *input)
 {
 	/*
 	for (int i = 0; i < 180/4; i++)

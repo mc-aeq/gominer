@@ -1,4 +1,5 @@
 // Copyright (c) 2016 The Decred developers.
+// Copyright (c) 2018 The Aequator developers.
 // +build cuda
 
 package main
@@ -11,10 +12,10 @@ import (
 )
 
 var (
-	//kernelDll           = syscall.MustLoadDLL("decred.dll")
-	kernelDll               = syscall.MustLoadDLL("decred.dll")
-	precomputeTableProcAddr = kernelDll.MustFindProc("decred_cpu_setBlock_52").Addr()
-	kernelProcAddr          = kernelDll.MustFindProc("decred_hash_nonce").Addr()
+	//kernelDll           = syscall.MustLoadDLL("aequator.dll")
+	kernelDll               = syscall.MustLoadDLL("aequator.dll")
+	precomputeTableProcAddr = kernelDll.MustFindProc("aequator_cpu_setBlock_52").Addr()
+	kernelProcAddr          = kernelDll.MustFindProc("aequator_hash_nonce").Addr()
 )
 
 func cudaPrecomputeTable(input *[192]byte) {

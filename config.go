@@ -16,7 +16,7 @@ import (
 
 	"github.com/btcsuite/btclog"
 	"github.com/btcsuite/go-flags"
-	"github.com/decred/dcrd/dcrutil"
+	"github.com/mc-aeq/aeqd/dcrutil"
 )
 
 const (
@@ -29,10 +29,10 @@ const (
 
 var (
 	minerHomeDir          = dcrutil.AppDataDir("gominer", false)
-	dcrdHomeDir           = dcrutil.AppDataDir("dcrd", false)
+	aeqdHomeDir           = dcrutil.AppDataDir("aeqd", false)
 	defaultConfigFile     = filepath.Join(minerHomeDir, defaultConfigFilename)
 	defaultRPCServer      = "localhost"
-	defaultRPCCertFile    = filepath.Join(dcrdHomeDir, "rpc.cert")
+	defaultRPCCertFile    = filepath.Join(aeqdHomeDir, "rpc.cert")
 	defaultRPCPortMainNet = "9109"
 	defaultRPCPortTestNet = "19109"
 	defaultRPCPortSimNet  = "19556"

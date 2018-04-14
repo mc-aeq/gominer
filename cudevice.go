@@ -1,11 +1,12 @@
 // Copyright (c) 2016 The Decred developers.
+// Copyright (c) 2018 The Aequator developers.
 
 // +build cuda,!opencl
 
 package main
 
 /*
-#include "decred.h"
+#include "aequator.h"
 */
 import "C"
 
@@ -21,9 +22,9 @@ import (
 
 	"github.com/barnex/cuda5/cu"
 
-	"github.com/decred/gominer/nvml"
-	"github.com/decred/gominer/util"
-	"github.com/decred/gominer/work"
+	"github.com/mc-aeq/gominer/nvml"
+	"github.com/mc-aeq/gominer/util"
+	"github.com/mc-aeq/gominer/work"
 )
 
 const (
@@ -91,15 +92,15 @@ type Device struct {
 	quit chan struct{}
 }
 
-func decredCPUSetBlock52(input *[192]byte) {
+func aequatorCPUSetBlock52(input *[192]byte) {
 	if input == nil {
 		panic("input is nil")
 	}
-	C.decred_cpu_setBlock_52((*C.uint32_t)(unsafe.Pointer(input)))
+	C.aequator_cpu_setBlock_52((*C.uint32_t)(unsafe.Pointer(input)))
 }
 
-func decredHashNonce(gridx, blockx, threads uint32, startNonce uint32, nonceResults cu.DevicePtr, targetHigh uint32) {
-	C.decred_hash_nonce(C.uint32_t(gridx), C.uint32_t(blockx), C.uint32_t(threads),
+func aequatorHashNonce(gridx, blockx, threads uint32, startNonce uint32, nonceResults cu.DevicePtr, targetHigh uint32) {
+	C.aequator_hash_nonce(C.uint32_t(gridx), C.uint32_t(blockx), C.uint32_t(threads),
 		C.uint32_t(startNonce), (*C.uint32_t)(unsafe.Pointer(nonceResults)), C.uint32_t(targetHigh))
 }
 
@@ -326,7 +327,7 @@ func (d *Device) runDevice() error {
 			i += 4
 			j++
 		}
-		decredCPUSetBlock52(endianData)
+		aequatorCPUSetBlock52(endianData)
 
 		// Update the timestamp. Only solo work allows you to roll
 		// the timestamp.
@@ -353,7 +354,7 @@ func (d *Device) runDevice() error {
 
 		targetHigh := ^uint32(0)
 
-		decredHashNonce(gridx, blockx, throughput, startNonce, nonceResultsD, targetHigh)
+		aequatorHashNonce(gridx, blockx, throughput, startNonce, nonceResultsD, targetHigh)
 
 		cu.MemcpyDtoH(nonceResultsH, nonceResultsD, d.cuInSize)
 

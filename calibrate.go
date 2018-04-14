@@ -9,8 +9,8 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/decred/gominer/cl"
-	"github.com/decred/gominer/work"
+	"github.com/mc-aeq/gominer/cl"
+	"github.com/mc-aeq/gominer/work"
 )
 
 // getKernelExecutionTime returns the kernel execution time for a device.

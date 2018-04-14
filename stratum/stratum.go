@@ -1,4 +1,5 @@
 // Copyright (c) 2016 The Decred developers.
+// Copyright (c) 2018 The Aequator developers.
 
 package stratum
 
@@ -25,12 +26,12 @@ import (
 
 	"github.com/btcsuite/go-socks/socks"
 
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/wire"
+	"github.com/mc-aeq/aeqd/chaincfg"
+	"github.com/mc-aeq/aeqd/chaincfg/chainhash"
+	"github.com/mc-aeq/aeqd/wire"
 
-	"github.com/decred/gominer/util"
-	"github.com/decred/gominer/work"
+	"github.com/mc-aeq/gominer/util"
+	"github.com/mc-aeq/gominer/work"
 )
 
 var chainParams = &chaincfg.MainNetParams
@@ -379,7 +380,7 @@ func (s *Stratum) handleStratumMsg(resp interface{}) {
 		msg := StratumMsg{
 			Method: nResp.Method,
 			ID:     nResp.ID,
-			Params: []string{"decred-gominer/" + s.cfg.Version},
+			Params: []string{"aequator-gominer/" + s.cfg.Version},
 		}
 		m, err := json.Marshal(msg)
 		if err != nil {
@@ -473,7 +474,7 @@ func (s *Stratum) Subscribe() error {
 	msg := StratumMsg{
 		Method: "mining.subscribe",
 		ID:     s.ID,
-		Params: []string{"decred-gominer/" + s.cfg.Version},
+		Params: []string{"aequator-gominer/" + s.cfg.Version},
 	}
 	s.subID = msg.ID.(uint64)
 	s.ID++

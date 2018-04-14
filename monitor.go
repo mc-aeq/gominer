@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/decred/gominer/util"
+	"github.com/mc-aeq/gominer/util"
 )
 
 type MinerStatus struct {
