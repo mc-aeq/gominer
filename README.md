@@ -174,7 +174,7 @@ go build -tags opencladl
 
 ###### Pre-Requisites
 
-- Download AMD APP SDK v3.0 from [http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/)
+- Download AMD APP SDK v3.0 from [https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/](https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/)
   * Samples may be unselected from the install to save space as only the libraries and headers are needed
 - Copy or Move `C:\Program Files (x86)\AMD APP SDK\3.0` to `C:\appsdk`
   * Ensure the folders `C:\appsdk\include` and `C:\appsdk\lib` are populated
