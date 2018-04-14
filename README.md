@@ -157,7 +157,7 @@ go build -tags opencladl
 
 ###### Pre-Requisites
 
-- Download Microsoft Visual Studio 2013 from [https://www.microsoft.com/en-us/download/details.aspx?id=44914](https://www.microsoft.com/en-us/download/details.aspx?id=44914)
+- Download Microsoft Visual Studio Community 2017 from [https://www.visualstudio.com/de/downloads/](https://www.visualstudio.com/de/downloads/)
 - Add `C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin` to your PATH
 - Install CUDA 7.0 from [https://developer.nvidia.com/cuda-toolkit-70](https://developer.nvidia.com/cuda-toolkit-70)
 - Add `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin` to your PATH
